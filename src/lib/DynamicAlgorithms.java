@@ -9,7 +9,12 @@ import java.util.List;
  */
 public class DynamicAlgorithms {
 
-    //  TODO Documentation
+    /**
+     * Provided with a List of Activity's returns a sublist with the activities
+     * that can be done by one single person, one at the time.
+     * @param activities List of activities
+     * @return List
+     */
     public static List<Integer> activitySelection(List<Activity> activities) {
 
         List<Integer> list = new ArrayList<>();
@@ -29,7 +34,13 @@ public class DynamicAlgorithms {
         return list;
     }
 
-    //  TODO Documentation
+    /**
+     * Provided with a list of coins and a change returns how many different ways
+     * there is to achieve that change with the list of coins.
+     * @param coins array of coin values
+     * @param change change required
+     * @return number of arrangements of the change
+     */
     public static int coinChange(int[] coins, int change) {
 
         if (coins.length <= 0)
@@ -55,7 +66,14 @@ public class DynamicAlgorithms {
         return table[change][coins.length - 1];
     }
 
-    //  TODO Documentation
+    /**
+     * Provided with a List of Item's and a knapsack size returns the maximum profit
+     * that can be achieved by filling the knapsack. In this case a Item is not
+     * discrete, it can be split and not lose it's value (eg.: grains).
+     * @param items list of Item's
+     * @param capacity size of the knapsack
+     * @return maximum profit
+     */
     public static double fractionalKnapsack(List<Item> items, int capacity) {
 
         items.sort((o1, o2) -> (o2.getValue()/o2.getWeight()) - (o1.getValue()/o1.getWeight()));
@@ -77,7 +95,14 @@ public class DynamicAlgorithms {
         return finalValue;
     }
 
-    //  TODO Documentation
+    /**
+     * Provided with a List of Item's and a knapsack size returns the maximum profit
+     * that can be achieved by filling the knapsack. In this case an Item is a solid
+     * object that can not be split without losing it's value.
+     * @param items list of Item's
+     * @param capacity size of the knapsack
+     * @return maximum profit
+     */
     public static int knapSack(List<Item> items, int capacity) {
 
         int table[][] = new int[items.size()+1][capacity+1];
@@ -96,7 +121,13 @@ public class DynamicAlgorithms {
         return table[items.size()][capacity];
     }
 
-    //  TODO Documentation
+    /**
+     * Given a dictionary of words and a word returns true if it is possible to
+     * segment the word into a space-separated sequence of the dictionary.
+     * @param dictionary dictionary of words for reference
+     * @param str string to be checked
+     * @return true if the string can be segmented, false otherwise
+     */
     public static boolean wordBreak(List<String> dictionary, String str) {
 
         if (str.length() == 0)  return true;

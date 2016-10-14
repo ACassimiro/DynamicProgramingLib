@@ -1,6 +1,7 @@
 package lib;
 
 /**
+ * Binary or Fractional KnapSack item.
  * Created by Marcelo on 05/10/2016.
  */
 public class Item {
@@ -23,9 +24,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "value=" + value +
-                ", weight=" + weight +
-                '}';
+        return "[" + value + ", " + weight + "]";
     }
 }

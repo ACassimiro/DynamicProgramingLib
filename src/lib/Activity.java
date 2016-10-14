@@ -1,6 +1,7 @@
 package lib;
 
 /**
+ * Activity for the Activity Selection problem.
  * Created by Marcelo on 07/10/2016.
  */
 public class Activity {
@@ -19,5 +20,10 @@ public class Activity {
 
     public int getFinishTime() {
         return finishTime;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + startTime + ", " + finishTime + "]";
     }
 }
