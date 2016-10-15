@@ -11,13 +11,18 @@ public class DynamicAlgorithms {
 
     /**
      * Provided with a List of Activity's returns a sublist with the activities
-     * that can be done by one single person, one at the time.
+     * that can be done by one single person, one at the time. The activities must be
+     * sorted by their finishing time.
      * @param activities List of activities
      * @return List
      */
     public static List<Integer> activitySelection(List<Activity> activities) {
 
         List<Integer> list = new ArrayList<>();
+
+        if (activities.isEmpty())
+            return list;
+
         list.add(0);
 
         Activity running = activities.get(0);
