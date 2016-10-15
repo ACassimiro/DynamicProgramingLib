@@ -1,23 +1,31 @@
 <snippet>
-  <content><![CDATA[
+  <content>
 # DynamicProgrammingLib
-Various algorithms written using dynamic programming as a exercise for the Análise e Projeto de Algorítimos class at Universidade Federal da Paraíba.
+Biblioteca com vários algorítimos feitos utilizando programação dinâmica criada como parte da nota da segunda unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
+
 ## Installation
-TODO: Describe the installation process
+1. Faça o download dos arquivos
+2. Adicione ao seu projeto
+
 ## Usage
-TODO: Write usage instructions
-## Contributing
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-## History
-TODO: Write history
+No seu projeto: `import lib/DynamicAlgorithms;`
+
+## Algorithms
+#### Activity Selection
+
+
+#### Coin Change
+
+#### Fractional Knap Sack
+
+#### Knap Sack
+
+#### Word Wrap
+
 ## Credits
 TODO: Write credits
+
 ## License
 TODO: Write license
-]]></content>
-  <tabTrigger>readme</tabTrigger>
+  </content>
 </snippet>
