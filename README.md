@@ -1,5 +1,3 @@
-<snippet>
-  <content>
 # DynamicProgrammingLib
 Biblioteca com vários algorítimos feitos utilizando programação dinâmica criada como parte da nota da segunda unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
 
@@ -19,7 +17,7 @@ Para funcionar corretamente a lista de atividades deve estar ordenada pelo tempo
 
 A função vai ler a lista de atividades e adicionar a respostas que o tempo de início seja maior ou igual ao tempo de finalizacão da última atividade adicionada.
 
-Complexidade: O(n)
+Complexidade: `O(n)`
 
 Utilização:
 ```java
@@ -36,7 +34,9 @@ List<Integer> list = DynamicAlgorithms.activitySelection(activities);
 #### Coin Change
 A partir de um array com os valores das moedas e um valor para o troco essa função retorna a quantidade de arranjos possíveis das moedas para chegar no troco desejado.
 
-Complexidade: O(mn)
+Complexidade: `O(mn)`
+
+Onde `m` o tamanho do array de moedas (quantidade de moedas) e `n` o tamanho do troco.
 
 Utilização:
 ```java
@@ -51,10 +51,10 @@ Para utilizar esse algorítimo: `import lib/Item;`
 
 A partir de uma `List<Item>` e o tamanho de uma mochila a função retorna o valor máximo que pode ser alcançado ao colocar os items dentro dessa mochila. Nesse problema os items não são discretos e podem ser fracionados. (ex.: grãos)
 
-A primeira parte da execução dessa função é ordenar os items por valor/peso.
-Após ordenar faz-se uma varredura simples na lista adicionando o máximo possível do item mais caro, caso sobre espaço na mochila, coloca-se o segundo item mais caro e isso se repete até encher a mochila.
+A primeira parte da execução dessa função é ordenar os items por valor/peso. Após ordenar faz-se uma varredura simples na lista adicionando o máximo possível do item mais caro, caso sobre espaço na mochila, coloca-se o segundo item mais caro e isso se repete até encher a mochila.
 
-Complexidade: O(n)
+Complexidade: `O(n)`
+
 Ordenação dos items: Depende do algoritimo de ordenação utilizado. Podendo ser uma ordenação linear.
 
 Utilização:
@@ -76,7 +76,7 @@ Para utilizar esse algorítimo: `import lib/Item;`
 
 A partir de uma `List<Item>` e o tamanho de uma mochila a função retorna o valor máximo que pode ser alcançado ao colocar os items dentro dessa mochila. Nesse problema os items não podem ser fracionados.
 
-Complexidade: O(mn)
+Complexidade: `O(mn)`
 
 Utilização:
 ```java
@@ -106,6 +106,3 @@ List<String> dictionary = new ArrayList<String>() {{
 
 boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream")
 ```
-
-  </content>
-</snippet>
