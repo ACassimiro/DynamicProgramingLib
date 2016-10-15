@@ -25,8 +25,9 @@ Utilização:
 ```java
 List<Activity> activities = new ArrayList<Activity>() {{
     add(new Activity(startTime, finishTime));
-    add(new Activity(startTime, finishTime));
-    add(new Activity(startTime, finishTime));
+    .
+    .
+    .
 }};
 
 List<Integer> list = DynamicAlgorithms.activitySelection(activities);
@@ -39,7 +40,7 @@ Complexidade: O(mn)
 
 Utilização:
 ```java
-int[] coins = {2, 5, 3, 6};
+int[] coins = {1, 5, 10, 25, 50};
 int change = 10;
 
 int output = DynamicAlgorithms.coinChange(coins, change);
@@ -61,11 +62,11 @@ Utilização:
 int sizeOfKnapsack = 50;
 
 List<Item> items = new ArrayList<Item>() {{
-    add(new Item(60, 10));
-    add(new Item(120, 30));
-    add(new Item(100, 20));
+    add(new Item(itemValue, itemWeight));
+    .
+    .
+    .
 }};
-
 
 double output = DynamicAlgorithms.fractionalKnapsack(items, sizeOfKnapsack);
 ```
@@ -81,10 +82,11 @@ Utilização:
 ```java
 int sizeOfKnapsack = 50;
 
-List<Item> binaryKnapsack = new ArrayList<Item>() {{
-    add(new Item(60, 10));
-    add(new Item(100, 20));
-    add(new Item(120, 30));
+List<Item> items = new ArrayList<Item>() {{
+    add(new Item(itemValue, itemWeight));
+    .
+    .
+    .
 }};
 
 int output = DynamicAlgorithms.knapSack(binaryKnapsack, sizeOfKnapsack);
