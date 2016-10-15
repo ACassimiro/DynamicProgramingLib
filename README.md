@@ -1,8 +1,7 @@
 <snippet>
-  <content>
+  <content><![CDATA[
 # DynamicProgrammingLib
 Various algorithms written using dynamic programming as a exercise for the Análise e Projeto de Algorítimos class at Universidade Federal da Paraíba.
-
 ## Installation
 TODO: Describe the installation process
 ## Usage
