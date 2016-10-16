@@ -60,4 +60,5 @@ public class MinEditDistanceTest {
 
 		assertEquals(2, output);
 	}
+	
 }
