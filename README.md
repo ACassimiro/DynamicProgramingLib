@@ -4,11 +4,11 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 ####Problemas Resolvidos:
 
 * Aellison Cassimiro - `#matricula`
-  * Prim's Minimum Spanning Tree
-  * Graph Coloring
-  * Matrix Multiplication
-  * Minimum Edit Distance
-  * Subset Sum
+  * [Graph Coloring](../master/README.md#graph-coloring)
+  * [Matrix Multiplication](../master/README.md#matrix-multiplication)
+  * [Minimum Edit Distance](../master/README.md#minimum-edit-distance)
+  * [Prim's Minimum Spanning Tree](../master/README.md#prims-minimum-spanning-tree)
+  * [Subset Sum](../master/README.md#subset-sum)
 
 * Diego Lima - `#matricula`
   * Longest Common Subsequence
@@ -19,20 +19,21 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 
 * Marcelo Aguiar Rodrigues - `11311862`
   * [Activity Selection](../master/README.md#activity-selection)
-  * Coin Change
-  * Fractional Knapsack
-  * Knapsack
-  * Word Break
+  * [Coin Change](../master/README.md#coin-change)
+  * [Fractional Knapsack](../master/README.md#fractional-knap-sack)
+  * [Knapsack](../master/README.md#knap-sack)
+  * [Word Break](../master/README.md#word-break)
 
 
 ## Instalação
-1. Faça o download dos arquivos
-2. Adicione ao seu projeto
+  1. Faça o download dos arquivos
+  2. Adicione ao seu projeto
 
 ## Utilização
-No seu projeto: `import lib/DynamicAlgorithms;`
+  No seu projeto: `import lib/DynamicAlgorithms;`
 
 ## Algorítimos
+
 #### Activity Selection
 Para utilizar esse algorítimo: `import lib/Activity;`
 
@@ -131,23 +132,6 @@ List<String> dictionary = new ArrayList<String>() {{
 boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream")
 ```
 
-#### Prim's Minimum Spanning Tree
-
-Tendo um grafo ponderado, pode-se convertê-lo para um array bidimensional. Este array será tratado como uma tabela de adjacência contendo os pesos das arestas, e com isso será possível montar a árvore desejada.
-
-Com o input pronto, a função analisará o grafo partindo da raiz (índice 0) e retornará uma string contendo as arestas da árvore no formato "i-j;i-x;x-y;" onde cada letra será o valor da vértice que representa um nó.
-
-Complexidade: `O(n²)`
-
-Utilização:
-```java
-int vert = x;
-int grafo[][] = new int[][]{{...}};
-
-int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
-```
-
-
 #### Graph Coloring
 
 Com um grafo de v vértice e um conjunto de x cores, precisamos saber se todos os nós podem ser pintados usando as cores dadas de uma forma que dois nós adjacentes não tenham a mesma cor.
@@ -180,7 +164,6 @@ int []array = { ... };
 int output = DynamicAlgorithms.matrixMultiplication(array);
 ```
 
-
 #### Minimum Edit Distance
 
 O usuário terá duas strings e necessita saber quantas operações de remoção, substituição, e/ou inserção serão feitas para transformar a primeira string na segunda.
@@ -195,6 +178,22 @@ String a = " ... ";
 String b = " ... ";
 
 int output = DynamicAlgorithms.minEdit(a, b));
+```
+
+#### Prim's Minimum Spanning Tree
+
+Tendo um grafo ponderado, pode-se convertê-lo para um array bidimensional. Este array será tratado como uma tabela de adjacência contendo os pesos das arestas, e com isso será possível montar a árvore desejada.
+
+Com o input pronto, a função analisará o grafo partindo da raiz (índice 0) e retornará uma string contendo as arestas da árvore no formato "i-j;i-x;x-y;" onde cada letra será o valor da vértice que representa um nó.
+
+Complexidade: `O(n²)`
+
+Utilização:
+```java
+int vert = x;
+int grafo[][] = new int[][]{{...}};
+
+int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
 ```
 
 #### Subset Sum
