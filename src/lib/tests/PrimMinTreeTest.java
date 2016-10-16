@@ -93,5 +93,4 @@ public class PrimMinTreeTest {
         //Root only, no paths
         assertEquals("", arestas);
     }
-
 }
