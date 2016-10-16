@@ -18,7 +18,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * Kruskal’s Minimum Spanning Tree Algorithm
 
 * Marcelo Aguiar Rodrigues - `11311862`
-  * [Activity Selection](../blob/master/README.md#activity-selection)
+  * [Activity Selection](../master/README.md#activity-selection)
   * Coin Change
   * Fractional Knapsack
   * Knapsack
