@@ -59,4 +59,5 @@ public class GraphColoringTest {
  		
 		assertFalse(DynamicAlgorithms.colorGraph(grafo, numCor, vert));
 	}
+    
 }
