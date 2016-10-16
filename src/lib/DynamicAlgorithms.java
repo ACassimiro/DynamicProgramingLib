@@ -163,14 +163,14 @@ public class DynamicAlgorithms {
     /**
      * Given a sequence of matrices, return the minimum number of operations
      * needed to perform the multiplication of these matrices.
-     * @param array with the matrices dimensions in the sequence of multiplications
+     * @param matDim array with the matrices dimensions in the sequence of multiplications
      * @return the minimum number of operations needed to multiply all the matrices
      */
     public static int matrixMultiplication(int[] matDim){
-        if(matDim.length < 2)
+        if (matDim.length < 2)
             return 0;
 
-        int[][]numOper;
+        int[][] numOper;
 
         int i, j, k; 
 
@@ -199,82 +199,76 @@ public class DynamicAlgorithms {
      * Given two strings str1 and str2, you are able to insert, remove, and replace 
      * characters in str1. Return the minimum number of edits (operations) required
      * to convert ‘str1′ into ‘str2′.
-     * @param the string sting to be modified
-     * @param the string that the first parameter must become
+     * @param str1 string sting to be modified
+     * @param str2 string that the first parameter must become
      * @return the minimum number of operations needed edit str1 to str2
      */
     public static int minEditDistance(String str1, String str2){
-        int tabelaMin[][] = new int[str1.length() + 1][str2.length() + 1];
+        int[][] tableMin = new int[str1.length() + 1][str2.length() + 1];
         int i, j; 
-        int menor;
+        int min;
 
         if(str1.length() < 1)
             return str2.length();
         if(str2.length() < 1)
             return str1.length();
 
-        for(i= 0; i<str1.length(); i++)
-            tabelaMin[i][0] = i;
+        for(i = 0; i < str1.length(); i++)
+            tableMin[i][0] = i;
 
-        for(i=0; i<str2.length(); i++)
-            tabelaMin[0][i] = i;
+        for(i = 0; i < str2.length(); i++)
+            tableMin[0][i] = i;
 
-        char []a = str1.toCharArray();
-        char []b = str2.toCharArray();
+        char[] a = str1.toCharArray();
+        char[] b = str2.toCharArray();
 
-        for(i=1; i<str1.length()+1; i++) {
-            for(j=1; j<str2.length()+1; j++) {
-                if(a[i-1] == b[j-1]){
-                    tabelaMin[i][j] = tabelaMin[i-1][j-1];
+        for(i = 1; i < str1.length()+1; i++) {
+            for(j = 1; j < str2.length()+1; j++) {
+                if (a[i-1] == b[j-1]) {
+                    tableMin[i][j] = tableMin[i-1][j-1];
                 } else { 
-                    menor = tabelaMin[i-1][j-1];
-                    if(menor > tabelaMin[i-1][j])
-                        menor = tabelaMin[i-1][j];
+                    min = tableMin[i-1][j-1];
+                    if (min > tableMin[i-1][j])
+                        min = tableMin[i-1][j];
 
-                    if(menor > tabelaMin[i][j-1])
-                        menor = tabelaMin[i][j-1];
+                    if (min > tableMin[i][j-1])
+                        min = tableMin[i][j-1];
 
-                    tabelaMin[i][j] = 1 + menor;
+                    tableMin[i][j] = 1 + min;
                 }
             }
         }
 
-        return tabelaMin[str1.length()][str2.length()];
+        return tableMin[str1.length()][str2.length()];
     }
 
     /**
      * Given a set of non-negative integers, and a value sum, determine if
      * there is a subset of the given set with sum equal to given sum.
-     * @param the integer value of the desired sum 
-     * @param the array representing the substet values
+     * @param sum integer value of the desired sum
+     * @param set array representing the substet values
      * @return true if a subset with the given sum can be found, false if not.
      */
-    public static boolean SubsetSum(int sum, int[] set){
+    public static boolean subsetSum(int sum, int[] set){
         int i, j;
 
-        boolean tabelaSub[][] = new boolean[set.length][sum+1];
+        boolean[][] tabelaSub = new boolean[set.length][sum+1];
 
-        for(i=0; i<set.length; i++){
-            for(j=0; j<sum+1; j++){
-                if(j == 0)
-                    tabelaSub[i][j] = true;
-                else
-                    tabelaSub[i][j] = false;
-            }
-        }
+        for(i = 0; i < set.length; i++)
+            for(j = 0; j < sum+1; j++)
+                tabelaSub[i][j] = j == 0;
 
-        for(i = 0; i<set.length; i++){
-            for(j = 1; j<sum+1; j++){
-                if(set[i] == j){
+        for(i = 0; i < set.length; i++) {
+            for(j = 1; j < sum+1; j++) {
+                if (set[i] == j) {
                     tabelaSub[i][j] = true;
                 } else if(i > 0 ) {
-                    if (tabelaSub[i-1][j]){
+                    if (tabelaSub[i-1][j]) {
                         tabelaSub[i][j] = true;
-                    } else if(j >= set[i]){
+                    } else if (j >= set[i]) {
                         tabelaSub[i][j] = tabelaSub[i-1][j-set[i]];
                     }
-                
-                } 
+                }
             }
         }
 
@@ -284,21 +278,19 @@ public class DynamicAlgorithms {
     /**
      * Given a weighted graph, this algorithm uses the Prim's approach to find the
      * minimum spanning tree that can be built with the nodes of the graph.
-     * @param the weighted graph in a bidimensional array format 
-     * @param the number of vertices
+     * @param graph weighted graph in a bidimensional array format
+     * @param vert number of vertices
      * @return an array where each graph vertice is represented by the array index, and the
      * content of the array represents to which node the current node (i) should
      * be connected to in the tree. Since the root is 0, the first value of the array will
      * be -1 (the root has no father).
      */
-    public static int[] PrimMinTree(int [][] grafo, int vert) {
+    public static int[] primMinTree(int[][] graph, int vert) {
         int i, v;
 
-        int min = Integer.MAX_VALUE, min_index=-1;
-
-        int arvore[] = new int[vert];
+        int tree[] = new int[vert];
  
-        int peso[] = new int [vert];
+        int peso[] = new int[vert];
 
         Boolean aincluir[] = new Boolean[vert]; 
  
@@ -308,14 +300,14 @@ public class DynamicAlgorithms {
         }
 
         peso[0] = 0;    
-        arvore[0] = -1; 
+        tree[0] = -1;
  
         for (int count = 0; count < vert-1; count++){
-            min = Integer.MAX_VALUE;
-            min_index=-1;
+            int min = Integer.MAX_VALUE;
+            int min_index = -1;
              
             for (v = 0; v < vert; v++){
-                if (aincluir[v] == false && peso[v] < min){
+                if (!aincluir[v] && peso[v] < min){
                     min = peso[v];
                     min_index = v;
                 }
@@ -326,55 +318,53 @@ public class DynamicAlgorithms {
             aincluir[u] = true;
  
             for (v = 0; v < vert; v++){                
-                if (grafo[u][v]!=0 && aincluir[v] == false && grafo[u][v] <  peso[v]){
-                    arvore[v]  = u;
-                    peso[v] = grafo[u][v];
+                if (graph[u][v]!=0 && !aincluir[v] && graph[u][v] <  peso[v]){
+                    tree[v]  = u;
+                    peso[v] = graph[u][v];
                 }
             }
         }
 
-        return arvore;
+        return tree;
     }
 
     /**
      * Given a graph of v vertices, can each node be painted with a different color
      * than its adjacents with a set of n colors ? If yes, return true, else return false.
-     * @param the graph in a bidimensional array format 
-     * @param the number of colors to be used
-     * @param the number of vertices in the graph
+     * @param graph in a bidimensional array format
+     * @param numColours number of colors to be used
+     * @param vert number of vertices in the graph
      * @return true if the graph can be colored with n colors without having two adjacent
      * nodes with the same color, false elsewise.
      */
-    public static boolean colorGraph(int[][] g, int numCores, int vert) {
-        vert = g.length;
+    public static boolean colorGraph(int[][] graph, int numColours, int vert) {
+        vert = graph.length;
         
         int[] cores = new int[vert];
-        int[][] grafoAux = g;
- 
+
         try {
-            atribuirCor(0, vert, grafoAux, numCores, cores);
+            paint(0, vert, graph, numColours, cores);
         } catch (Exception e) {
             return true;
         }
         return false;
     }
     
-    private static void atribuirCor(int v, int vert, int[][] grafo, int numCores, int[] cores) throws Exception {
-        boolean auxFlag = true;
-        boolean flagRetorno = false;
-        
+    private static void paint(int v, int vert, int[][] graph, int numColours, int[] cores) throws Exception {
+        boolean auxFlag;
+
         if (v == vert)
             throw new Exception("Solucao encontrada");
         
-        for (int c = 1; c <= numCores; c++) {
+        for (int c = 1; c <= numColours; c++) {
             auxFlag = true;
             for (int i = 0; i < vert; i++)
-                if (grafo[v][i] == 1 && c == cores[i])
+                if (graph[v][i] == 1 && c == cores[i])
                     auxFlag = false;
 
             if (auxFlag){
                 cores[v] = c;
-                atribuirCor(v + 1, vert, grafo, numCores, cores);
+                paint(v + 1, vert, graph, numColours, cores);
                 cores[v] = 0;
             }
         }    

@@ -3,9 +3,6 @@ package lib.tests;
 import lib.DynamicAlgorithms;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class SubsetSumTest {
@@ -14,7 +11,7 @@ public class SubsetSumTest {
 		int sum = 11;
 		int []set = {2,3,7,8,10};
 
-		boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+		boolean output = DynamicAlgorithms.subsetSum(sum, set);
 
 		assertTrue(output);
 	}
@@ -24,7 +21,7 @@ public class SubsetSumTest {
 		int sum = 55;
 		int []set = {30, 40, 10, 15, 10, 60, 54};
 
-		boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+		boolean output = DynamicAlgorithms.subsetSum(sum, set);
 
 		assertTrue(output);
 	}
@@ -34,7 +31,7 @@ public class SubsetSumTest {
 		int sum = 9;
 		int set[] = {3, 34, 4, 12, 5, 2};
 		
-		boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+		boolean output = DynamicAlgorithms.subsetSum(sum, set);
 
 		assertTrue(output);
 	}
@@ -44,7 +41,7 @@ public class SubsetSumTest {
 		int sum = 0;
 		int []set = {1};
 		
-		boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+		boolean output = DynamicAlgorithms.subsetSum(sum, set);
 
 		assertTrue(output);
 	}
@@ -54,7 +51,7 @@ public class SubsetSumTest {
 		int sum = 80;
 		int []set = {0};
 
-		boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+		boolean output = DynamicAlgorithms.subsetSum(sum, set);
 
 		assertFalse(output);
 	}

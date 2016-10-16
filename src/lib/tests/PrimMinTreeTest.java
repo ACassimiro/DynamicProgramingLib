@@ -3,9 +3,6 @@ package lib.tests;
 import lib.DynamicAlgorithms;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 
@@ -21,7 +18,7 @@ public class PrimMinTreeTest {
                                     {6, 8, 0, 0, 9},
                                     {0, 5, 7, 9, 0}};
 
-        int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
+        int [] arvore = DynamicAlgorithms.primMinTree(grafo, vert);
 
         String arestas = "";
         
@@ -41,7 +38,7 @@ public class PrimMinTreeTest {
                                     {0, 0, 0},
                                     {1, 2, 0}};
     
-        int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
+        int [] arvore = DynamicAlgorithms.primMinTree(grafo, vert);
 
         String arestas = "";
         
@@ -60,9 +57,9 @@ public class PrimMinTreeTest {
 
         int grafo[][] = new int[][]{{0, 1, 2}, 
                                     {1, 0, 1},
-                                    {2, 1, 0}}
+                                    {2, 1, 0}};
     
-        int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
+        int [] arvore = DynamicAlgorithms.primMinTree(grafo, vert);
 
         String arestas = "";
         
@@ -81,7 +78,7 @@ public class PrimMinTreeTest {
 
         int grafo[][] = new int[][]{{0}}; 
     
-        int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
+        int [] arvore = DynamicAlgorithms.primMinTree(grafo, vert);
 
         String arestas = "";
         

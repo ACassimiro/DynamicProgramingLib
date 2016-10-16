@@ -15,7 +15,7 @@ public class MinEditDistanceTest {
 		String a = "azced";
 		String b = "abcdef";
 
-		int output = DynamicAlgorithms.minEdit(a, b));
+		int output = DynamicAlgorithms.minEditDistance(a, b);
 
 		assertEquals(3, output);
 	}
@@ -25,7 +25,7 @@ public class MinEditDistanceTest {
 		String a = "azced";
 		String b = "";
 
-		int output = DynamicAlgorithms.minEdit(a, b));
+		int output = DynamicAlgorithms.minEditDistance(a, b);
 
 		assertEquals(5, output);
 
@@ -36,7 +36,7 @@ public class MinEditDistanceTest {
 		String a = "";
 		String b = "abcdef";
 
-		int output = DynamicAlgorithms.minEdit(a, b));
+		int output = DynamicAlgorithms.minEditDistance(a, b);
 
 		assertEquals(6, output);
 	}
@@ -46,7 +46,7 @@ public class MinEditDistanceTest {
 		String a = "book";
 		String b = "back";
 
-		int output = DynamicAlgorithms.minEdit(a, b));
+		int output = DynamicAlgorithms.minEditDistance(a, b);
 
 		assertEquals(2, output);
 	}
@@ -56,9 +56,9 @@ public class MinEditDistanceTest {
 		String a = "planeta";
 		String b = "cometa";
 
-		int output = DynamicAlgorithms.minEdit(a, b));
+		int output = DynamicAlgorithms.minEditDistance(a, b);
 
-		assertEquals(2, output);
+		assertEquals(4, output);
 	}
 	
 }

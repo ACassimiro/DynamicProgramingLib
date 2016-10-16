@@ -39,8 +39,8 @@ public class MatrixMultiplicationTest {
 	@Test
 	public void matrixMultiplicationTest4() throws Exception{
 		int []array = {10, 30, 5, 60};
-		
-		int output = matrixMultiplication(array);
+
+		int output = DynamicAlgorithms.matrixMultiplication(array);
 
 		assertEquals(4500, output);
 	}
