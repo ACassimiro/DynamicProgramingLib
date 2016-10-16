@@ -167,6 +167,9 @@ public class DynamicAlgorithms {
      * @return the minimum number of operations needed to multiply all the matrices
      */
     public static int matrixMultiplication(int[] matDim){
+        if(matDim.length < 2)
+            return 0;
+
         int[][]numOper;
 
         int i, j, k; 
@@ -204,6 +207,11 @@ public class DynamicAlgorithms {
         int tabelaMin[][] = new int[str1.length() + 1][str2.length() + 1];
         int i, j; 
         int menor;
+
+        if(str1.length() < 1)
+            return str2.length();
+        if(str2.length() < 1)
+            return str1.length();
 
         for(i= 0; i<str1.length(); i++)
             tabelaMin[i][0] = i;
@@ -273,6 +281,104 @@ public class DynamicAlgorithms {
         return tabelaSub[set.length-1][sum];
     }
 
+    /**
+     * Given a weighted graph, this algorithm uses the Prim's approach to find the
+     * minimum spanning tree that can be built with the nodes of the graph.
+     * @param the weighted graph in a bidimensional array format 
+     * @param the number of vertices
+     * @return an array where each graph vertice is represented by the array index, and the
+     * content of the array represents to which node the current node (i) should
+     * be connected to in the tree. Since the root is 0, the first value of the array will
+     * be -1 (the root has no father).
+     */
+    public static int[] PrimMinTree(int [][] grafo, int vert) {
+        int i, v;
+
+        int min = Integer.MAX_VALUE, min_index=-1;
+
+        int arvore[] = new int[vert];
+ 
+        int peso[] = new int [vert];
+
+        Boolean aincluir[] = new Boolean[vert]; 
+ 
+        for (i = 0; i < vert; i++){
+            peso[i] = Integer.MAX_VALUE;
+            aincluir[i] = false;
+        }
+
+        peso[0] = 0;    
+        arvore[0] = -1; 
+ 
+        for (int count = 0; count < vert-1; count++){
+            min = Integer.MAX_VALUE;
+            min_index=-1;
+             
+            for (v = 0; v < vert; v++){
+                if (aincluir[v] == false && peso[v] < min){
+                    min = peso[v];
+                    min_index = v;
+                }
+            }
+            
+            int u = min_index;
+
+            aincluir[u] = true;
+ 
+            for (v = 0; v < vert; v++){                
+                if (grafo[u][v]!=0 && aincluir[v] == false && grafo[u][v] <  peso[v]){
+                    arvore[v]  = u;
+                    peso[v] = grafo[u][v];
+                }
+            }
+        }
+
+        return arvore;
+    }
+
+    /**
+     * Given a graph of v vertices, can each node be painted with a different color
+     * than its adjacents with a set of n colors ? If yes, return true, else return false.
+     * @param the graph in a bidimensional array format 
+     * @param the number of colors to be used
+     * @param the number of vertices in the graph
+     * @return true if the graph can be colored with n colors without having two adjacent
+     * nodes with the same color, false elsewise.
+     */
+    public static boolean colorGraph(int[][] g, int numCores, int vert) {
+        vert = g.length;
+        
+        int[] cores = new int[vert];
+        int[][] grafoAux = g;
+ 
+        try {
+            atribuirCor(0, vert, grafoAux, numCores, cores);
+        } catch (Exception e) {
+            return true;
+        }
+        return false;
+    }
+    
+    private static void atribuirCor(int v, int vert, int[][] grafo, int numCores, int[] cores) throws Exception {
+        boolean auxFlag = true;
+        boolean flagRetorno = false;
+        
+        if (v == vert)
+            throw new Exception("Solucao encontrada");
+        
+        for (int c = 1; c <= numCores; c++) {
+            auxFlag = true;
+            for (int i = 0; i < vert; i++)
+                if (grafo[v][i] == 1 && c == cores[i])
+                    auxFlag = false;
+
+            if (auxFlag){
+                cores[v] = c;
+                atribuirCor(v + 1, vert, grafo, numCores, cores);
+                cores[v] = 0;
+            }
+        }    
+    }
 
 
 }
