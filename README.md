@@ -1,6 +1,30 @@
 # DynamicProgrammingLib
 Biblioteca com vários algorítimos feitos utilizando programação dinâmica criada como parte da nota da segunda unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
 
+####Problemas Resolvidos:
+
+* Aellison Cassimiro - `#matricula`
+  * Prim's Minimum Spanning Tree
+  * Graph Coloring
+  * Matrix Multiplication
+  * Minimum Edit Distance
+  * Subset Sum
+
+* Diego Lima - `#matricula`
+  * Longest Common Subsequence
+  * Floyd Warshall Algorithm
+  * Box Stacking Problem
+  * Dijkstra’s shortest path algorithm
+  * Kruskal’s Minimum Spanning Tree Algorithm
+
+* Marcelo Aguiar Rodrigues - `11311862`
+  * Activity Selection
+  * Coin Change
+  * Fractional Knapsack
+  * Knapsack
+  * Word Break
+
+
 ## Instalação
 1. Faça o download dos arquivos
 2. Adicione ao seu projeto
