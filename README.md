@@ -3,7 +3,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 
 ####Problemas Resolvidos:
 
-* Aellison Cassimiro - `#matricula`
+* Aellison Cassimiro Teixeira dos Santos - `11311469`
   * [Graph Coloring](../master/README.md#graph-coloring)
   * [Matrix Multiplication](../master/README.md#matrix-multiplication)
   * [Minimum Edit Distance](../master/README.md#minimum-edit-distance)
@@ -211,5 +211,3 @@ int []set = { ... };
 
 boolean output = DynamicAlgorithms.SubsetSum(sum, set);
 ```
-
-
