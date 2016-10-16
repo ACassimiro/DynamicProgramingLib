@@ -106,3 +106,87 @@ List<String> dictionary = new ArrayList<String>() {{
 
 boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream")
 ```
+
+#### Prim's Minimum Spanning Tree
+
+Tendo um grafo ponderado, pode-se convertê-lo para um array bidimensional. Este array será tratado como uma tabela de adjacência contendo os pesos das arestas, e com isso será possível montar a árvore desejada.
+
+Com o input pronto, a função analisará o grafo partindo da raiz (índice 0) e retornará uma string contendo as arestas da árvore no formato "i-j;i-x;x-y;" onde cada letra será o valor da vértice que representa um nó.
+
+Complexidade: `O(n²)`
+
+Utilização:
+```java
+int vert = x;
+int grafo[][] = new int[][]{{...}};
+
+int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
+```
+
+
+#### Graph Coloring
+
+Com um grafo de v vértice e um conjunto de x cores, precisamos saber se todos os nós podem ser pintados usando as cores dadas de uma forma que dois nós adjacentes não tenham a mesma cor.
+
+A função receberá uma matriz de adjacência representando o grafo, retornando verdadeiro caso seja possível pintar o grafo com as cores dadas ou falso caso contrário.
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+int vert = x;
+int numCores = y;
+int grafo[][] = new int[][]{{...}};
+
+boolean possivel = DynamicAlgorithms.colorGraph(grafo, numCor, vert)
+```
+
+#### Matrix Multiplication
+
+Com um conjunto de n matrizes, esta função retornará a quantidade de multiplicações feitas em um sequência ótima de operações no dado conjunto na ordem apresentada.
+
+A função receberá um array onde os n-1 primeiros valores do array serão o numero de linhas das matrizes, e o último valor será o numero de colunas da última matriz. O retorno é o número de operações feitas numa multiplicação otimizada.
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+int []array = { ... };
+		
+int output = DynamicAlgorithms.matrixMultiplication(array);
+```
+
+
+#### Minimum Edit Distance
+
+O usuário terá duas strings e necessita saber quantas operações de remoção, substituição, e/ou inserção serão feitas para transformar a primeira string na segunda.
+
+O programa recebe duas strings e retorna o número mínimo de operações (a distância) para transformar a primeira string na segunda. 
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+String a = " ... ";
+String b = " ... ";
+
+int output = DynamicAlgorithms.minEdit(a, b));
+```
+
+#### Subset Sum
+
+O usuário terá um número x e um conjunto de inteiros I e deseja saber se o x pode ser formado por uma soma de um subconjunto de valores de V.
+
+O programa recebe um número e um array como entrada, o número será a soma e o array o conjunto no qual os valores que possivelmente podem somar a x estão contidos. Retornará verdadeiro se for encontrado um subconjunto cuja a soma seja x, falso caso contrário. 
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+int sum = ... ;
+int []set = { ... };
+
+boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+```
+
+
