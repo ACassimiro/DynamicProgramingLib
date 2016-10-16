@@ -160,4 +160,119 @@ public class DynamicAlgorithms {
         return false;
     }
 
+    /**
+     * Given a sequence of matrices, return the minimum number of operations
+     * needed to perform the multiplication of these matrices.
+     * @param array with the matrices dimensions in the sequence of multiplications
+     * @return the minimum number of operations needed to multiply all the matrices
+     */
+    public static int matrixMultiplication(int[] matDim){
+        int[][]numOper;
+
+        int i, j, k; 
+
+        int n = matDim.length - 1;
+        numOper = new int[n][n];
+
+        for (k = 1; k < n; k++) {
+            for (i = 0; i < n - k; i++) {
+                j = i + k;
+
+                numOper[i][j] = Integer.MAX_VALUE;
+
+                for (int z = i; z < j; z++) {
+                    int num = numOper[i][z] + numOper[z+1][j] + matDim[i] * matDim[z+1] * matDim[j+1];
+                    if (num < numOper[i][j]) {
+                        numOper[i][j] = num;
+                    }
+                }
+            }
+        }
+
+        return numOper[0][n-1];
+    }
+
+    /**
+     * Given two strings str1 and str2, you are able to insert, remove, and replace 
+     * characters in str1. Return the minimum number of edits (operations) required
+     * to convert ‘str1′ into ‘str2′.
+     * @param the string sting to be modified
+     * @param the string that the first parameter must become
+     * @return the minimum number of operations needed edit str1 to str2
+     */
+    public static int minEditDistance(String str1, String str2){
+        int tabelaMin[][] = new int[str1.length() + 1][str2.length() + 1];
+        int i, j; 
+        int menor;
+
+        for(i= 0; i<str1.length(); i++)
+            tabelaMin[i][0] = i;
+
+        for(i=0; i<str2.length(); i++)
+            tabelaMin[0][i] = i;
+
+        char []a = str1.toCharArray();
+        char []b = str2.toCharArray();
+
+        for(i=1; i<str1.length()+1; i++) {
+            for(j=1; j<str2.length()+1; j++) {
+                if(a[i-1] == b[j-1]){
+                    tabelaMin[i][j] = tabelaMin[i-1][j-1];
+                } else { 
+                    menor = tabelaMin[i-1][j-1];
+                    if(menor > tabelaMin[i-1][j])
+                        menor = tabelaMin[i-1][j];
+
+                    if(menor > tabelaMin[i][j-1])
+                        menor = tabelaMin[i][j-1];
+
+                    tabelaMin[i][j] = 1 + menor;
+                }
+            }
+        }
+
+        return tabelaMin[str1.length()][str2.length()];
+    }
+
+    /**
+     * Given a set of non-negative integers, and a value sum, determine if
+     * there is a subset of the given set with sum equal to given sum.
+     * @param the integer value of the desired sum 
+     * @param the array representing the substet values
+     * @return true if a subset with the given sum can be found, false if not.
+     */
+    public static boolean SubsetSum(int sum, int[] set){
+        int i, j;
+
+        boolean tabelaSub[][] = new boolean[set.length][sum+1];
+
+        for(i=0; i<set.length; i++){
+            for(j=0; j<sum+1; j++){
+                if(j == 0)
+                    tabelaSub[i][j] = true;
+                else
+                    tabelaSub[i][j] = false;
+            }
+        }
+
+        for(i = 0; i<set.length; i++){
+            for(j = 1; j<sum+1; j++){
+                if(set[i] == j){
+                    tabelaSub[i][j] = true;
+                } else if(i > 0 ) {
+                    if (tabelaSub[i-1][j]){
+                        tabelaSub[i][j] = true;
+                    } else if(j >= set[i]){
+                        tabelaSub[i][j] = tabelaSub[i-1][j-set[i]];
+                    }
+                
+                } 
+            }
+        }
+
+        return tabelaSub[set.length-1][sum];
+    }
+
+
+
 }
