@@ -11,12 +11,12 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Subset Sum](../master/README.md#subset-sum)
 
 * Diego Filipe Sousa Lima - `11408104`
-  * Longest Common Subsequence
-  * Floyd Warshall Algorithm
-  * Box Stacking Problem
+  * [Box Stacking Problem](../master/README.md#box-stacking)
   * Dijkstra’s shortest path algorithm
+  * [Floyd Warshall Algorithm](../master/README.md#floyd-warshall)
   * Kruskal’s Minimum Spanning Tree Algorithm
-
+  * [Longest Common Subsequence](../master/README.md#longest-common-subsequence)
+  
 * Marcelo Aguiar Rodrigues - `11311862`
   * [Activity Selection](../master/README.md#activity-selection)
   * [Coin Change](../master/README.md#coin-change)
