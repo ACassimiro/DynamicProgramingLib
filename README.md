@@ -10,7 +10,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Prim's Minimum Spanning Tree](../master/README.md#prims-minimum-spanning-tree)
   * [Subset Sum](../master/README.md#subset-sum)
 
-* Diego Lima - `#matricula`
+* Diego Filipe Sousa Lima - `11408104`
   * Longest Common Subsequence
   * Floyd Warshall Algorithm
   * Box Stacking Problem
@@ -210,4 +210,51 @@ int sum = ... ;
 int []set = { ... };
 
 boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+```
+
+#### Box Stacking
+
+O usuário terá um conjunto de "n" caixas 3d, e ele deseja saber qual a maior altura possivel de ser obtida empilhando as caixas. Há uma restrição de que a base 2d da caixa de baixo tem que ser sempre estritamente maior que a da caixa de cima.
+
+O programa recebe um array de caixas, onde cada uma delas pode ser rotacionada para ser empilhada em cima de si mesmo como se fosse outra caixa, desde que atenda a restrição. Retornará um número que é a máxima altura da pilha de caixas.
+
+Complexidade: `O(n²)`
+
+Utilização:
+```java
+int input[] = { ... }
+
+int output = DynamicAlgorithms.maxHeight(input);
+```
+
+#### Longest Common Subsequence
+
+Dado duas strings "m" e "n" o usuário deseja obter o tamanho da maior subsequência comum dentre os seus elementos. Para que os elementos pertençam a maior subsequência, eles não precisam estar adjacentes na sua string de origem, precisam apenas estar um apos o outro na mesma ordem nas duas strings.
+
+O programa recebe duas strings que são convertidas em dois arrays de caracteres, os quais são comparados de diversas maneiras. Retornará o tamanho da maior subsequência comum entre as duas strings.
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+String first_string = " ... "
+String second_string = " ... "
+
+int output = DynamicAlgorithms.lcs(first_string, second_string);
+```
+
+#### Floyd Warshall
+
+Dado um grafo orientado com "n" nós, não negativo, esse algoritmo busca expor os caminhos mais curtos entre todos os pares de nós do grafo.
+
+O programa tem como entrada as informações sobre a quantidade de nós do grafo e informações como: nó de origem, nó de destino e o tamanho do caminho entre esses dois nós respectivamente. Retornará um grafo resultante que contem as menores distâncias entre cada dois nós.
+
+Complexidade: `O(n³)`
+
+Utilização:
+```java
+Graph fw = new Graph( ... );
+fw.addEdge( ... );
+
+double[][] result = DynamicAlgorithms.floydWarshall();
 ```
