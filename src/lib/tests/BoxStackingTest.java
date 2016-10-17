@@ -11,8 +11,11 @@ import static org.junit.Assert.*;
 
 public class BoxStackingTest {
 	@Test
-	public void boxStackingTest1() throws Exception{
-		int input[] = {{4, 6, 7}, {1, 2, 3}, {4, 5, 6}, {10, 12, 32}};
+	public void boxStackingTest1() throws Exception {
+		Box[] input = { new Box(4, 6, 7),
+				new Box(1, 2, 3),
+                new Box(4, 5, 6),
+                new Box(10, 12, 32)};
 		
 		int output = DynamicAlgorithms.maxHeight(input);
 
@@ -20,8 +23,9 @@ public class BoxStackingTest {
 	}
 
 	@Test
-	public void boxStackingTest2() throws Exception{
-		int input[] = {{3, 2, 5}, {1, 2, 4}};
+	public void boxStackingTest2() throws Exception {
+		Box[] input = {new Box(3, 2, 5),
+                new Box(1, 2, 4)};
 		
 		int output = DynamicAlgorithms.maxHeight(input);
 
@@ -29,8 +33,12 @@ public class BoxStackingTest {
 	}
 
 	@Test
-	public void boxStackingTest3() throws Exception{
-		int input[] = {{4, 7, 9}, {5, 8, 9}, {11, 20, 40}, {1, 2, 3}};
+	public void boxStackingTest3() throws Exception {
+		Box[] input = {
+		        new Box(4, 7, 9),
+                new Box(5, 8, 9),
+                new Box(11, 20, 40),
+                new Box(1, 2, 3)};
 		
 		int output = DynamicAlgorithms.maxHeight(input);
 
