@@ -1,7 +1,7 @@
 # DynamicProgrammingLib
 Biblioteca com vários algorítimos feitos utilizando programação dinâmica criada como parte da nota da segunda unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
 
-####Problemas Resolvidos:
+### Problemas Resolvidos:
 
 * Aellison Cassimiro Teixeira dos Santos - `11311469`
   * [Graph Coloring](../master/README.md#graph-coloring)
@@ -26,15 +26,15 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 
 
 ## Instalação
-  1. Faça o download dos arquivos
-  2. Adicione ao seu projeto
+1. Faça o download dos arquivos
+2. Adicione ao seu projeto
 
 ## Utilização
-  No seu projeto: `import lib/DynamicAlgorithms;`
+No seu projeto: `import lib/DynamicAlgorithms;`
 
 ## Algorítimos
 
-#### Activity Selection
+### Activity Selection
 Para utilizar esse algorítimo: `import lib/Activity;`
 
 A partir de uma `List<Activity>` retora uma lista com o índice das atividades que podem ser realizadas por uma única pessoa sendo que apenas uma atividade pode ser realizada por vez.
@@ -56,7 +56,22 @@ List<Activity> activities = new ArrayList<Activity>() {{
 List<Integer> list = DynamicAlgorithms.activitySelection(activities);
 ```
 
-#### Coin Change
+### Box Stacking
+
+O usuário terá um conjunto de "n" caixas 3d, e ele deseja saber qual a maior altura possivel de ser obtida empilhando as caixas. Há uma restrição de que a base 2d da caixa de baixo tem que ser sempre estritamente maior que a da caixa de cima.
+
+O programa recebe um array de caixas, onde cada uma delas pode ser rotacionada para ser empilhada em cima de si mesmo como se fosse outra caixa, desde que atenda a restrição. Retornará um número que é a máxima altura da pilha de caixas.
+
+Complexidade: `O(n²)`
+
+Utilização:
+```java
+int[] input = { ... }
+
+int output = DynamicAlgorithms.maxHeight(input);
+```
+
+### Coin Change
 A partir de um array com os valores das moedas e um valor para o troco essa função retorna a quantidade de arranjos possíveis das moedas para chegar no troco desejado.
 
 Complexidade: `O(mn)`
@@ -65,13 +80,28 @@ Onde `m` o tamanho do array de moedas (quantidade de moedas) e `n` o tamanho do 
 
 Utilização:
 ```java
-int[] coins = {1, 5, 10, 25, 50};
-int change = 10;
+int[] coins = { ... };
+int change = NUMBER;
 
 int output = DynamicAlgorithms.coinChange(coins, change);
 ```
+#### Floyd Warshall
 
-#### Fractional Knap Sack
+Dado um grafo orientado com "n" nós, não negativo, esse algoritmo busca expor os caminhos mais curtos entre todos os pares de nós do grafo.
+
+O programa tem como entrada as informações sobre a quantidade de nós do grafo e informações como: nó de origem, nó de destino e o tamanho do caminho entre esses dois nós respectivamente. Retornará um grafo resultante que contem as menores distâncias entre cada dois nós.
+
+Complexidade: `O(n³)`
+
+Utilização:
+```java
+Graph fw = new Graph( ... );
+fw.addEdge( ... );
+
+double[][] result = DynamicAlgorithms.floydWarshall(fw);
+```
+
+### Fractional Knap Sack
 Para utilizar esse algorítimo: `import lib/Item;`
 
 A partir de uma `List<Item>` e o tamanho de uma mochila a função retorna o valor máximo que pode ser alcançado ao colocar os items dentro dessa mochila. Nesse problema os items não são discretos e podem ser fracionados. (ex.: grãos)
@@ -84,7 +114,7 @@ Ordenação dos items: Depende do algoritimo de ordenação utilizado. Podendo s
 
 Utilização:
 ```java
-int sizeOfKnapsack = 50;
+int sizeOfKnapsack = NUMBER;
 
 List<Item> items = new ArrayList<Item>() {{
     add(new Item(itemValue, itemWeight));
@@ -96,43 +126,7 @@ List<Item> items = new ArrayList<Item>() {{
 double output = DynamicAlgorithms.fractionalKnapsack(items, sizeOfKnapsack);
 ```
 
-#### Knap Sack
-Para utilizar esse algorítimo: `import lib/Item;`
-
-A partir de uma `List<Item>` e o tamanho de uma mochila a função retorna o valor máximo que pode ser alcançado ao colocar os items dentro dessa mochila. Nesse problema os items não podem ser fracionados.
-
-Complexidade: `O(mn)`
-
-Utilização:
-```java
-int sizeOfKnapsack = 50;
-
-List<Item> items = new ArrayList<Item>() {{
-    add(new Item(itemValue, itemWeight));
-    .
-    .
-    .
-}};
-
-int output = DynamicAlgorithms.knapSack(binaryKnapsack, sizeOfKnapsack);
-```
-
-#### Word Break
-A partir de um dicionário de palavras e uma string retorna `true` ou `false` caso a string possa ser dividida em uma sequencia de strings presente no dicionário.
-
-Utilização:
-```java
-List<String> dictionary = new ArrayList<String>() {{
-            add("i");
-            add("like");
-            add("ice");
-            add("cream");
-        }};
-
-boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream")
-```
-
-#### Graph Coloring
+### Graph Coloring
 
 Com um grafo de v vértice e um conjunto de x cores, precisamos saber se todos os nós podem ser pintados usando as cores dadas de uma forma que dois nós adjacentes não tenham a mesma cor.
 
@@ -144,90 +138,33 @@ Utilização:
 ```java
 int vert = x;
 int numCores = y;
-int grafo[][] = new int[][]{{...}};
+int[][] grafo = new int[][]{{...}};
 
 boolean possivel = DynamicAlgorithms.colorGraph(grafo, numCor, vert)
 ```
 
-#### Matrix Multiplication
+### Knap Sack
+Para utilizar esse algorítimo: `import lib/Item;`
 
-Com um conjunto de n matrizes, esta função retornará a quantidade de multiplicações feitas em um sequência ótima de operações no dado conjunto na ordem apresentada.
-
-A função receberá um array onde os n-1 primeiros valores do array serão o numero de linhas das matrizes, e o último valor será o numero de colunas da última matriz. O retorno é o número de operações feitas numa multiplicação otimizada.
-
-Complexidade: `O(mn)`
-
-Utilização:
-```java
-int []array = { ... };
-		
-int output = DynamicAlgorithms.matrixMultiplication(array);
-```
-
-#### Minimum Edit Distance
-
-O usuário terá duas strings e necessita saber quantas operações de remoção, substituição, e/ou inserção serão feitas para transformar a primeira string na segunda.
-
-O programa recebe duas strings e retorna o número mínimo de operações (a distância) para transformar a primeira string na segunda. 
+A partir de uma `List<Item>` e o tamanho de uma mochila a função retorna o valor máximo que pode ser alcançado ao colocar os items dentro dessa mochila. Nesse problema os items não podem ser fracionados.
 
 Complexidade: `O(mn)`
 
 Utilização:
 ```java
-String a = " ... ";
-String b = " ... ";
+int sizeOfKnapsack = NUMBER;
 
-int output = DynamicAlgorithms.minEdit(a, b));
+List<Item> items = new ArrayList<Item>() {{
+    add(new Item(itemValue, itemWeight));
+    .
+    .
+    .
+}};
+
+int output = DynamicAlgorithms.knapSack(binaryKnapsack, sizeOfKnapsack);
 ```
 
-#### Prim's Minimum Spanning Tree
-
-Tendo um grafo ponderado, pode-se convertê-lo para um array bidimensional. Este array será tratado como uma tabela de adjacência contendo os pesos das arestas, e com isso será possível montar a árvore desejada.
-
-Com o input pronto, a função analisará o grafo partindo da raiz (índice 0) e retornará uma string contendo as arestas da árvore no formato "i-j;i-x;x-y;" onde cada letra será o valor da vértice que representa um nó.
-
-Complexidade: `O(n²)`
-
-Utilização:
-```java
-int vert = x;
-int grafo[][] = new int[][]{{...}};
-
-int [] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
-```
-
-#### Subset Sum
-
-O usuário terá um número x e um conjunto de inteiros I e deseja saber se o x pode ser formado por uma soma de um subconjunto de valores de V.
-
-O programa recebe um número e um array como entrada, o número será a soma e o array o conjunto no qual os valores que possivelmente podem somar a x estão contidos. Retornará verdadeiro se for encontrado um subconjunto cuja a soma seja x, falso caso contrário. 
-
-Complexidade: `O(mn)`
-
-Utilização:
-```java
-int sum = ... ;
-int []set = { ... };
-
-boolean output = DynamicAlgorithms.SubsetSum(sum, set);
-```
-
-#### Box Stacking
-
-O usuário terá um conjunto de "n" caixas 3d, e ele deseja saber qual a maior altura possivel de ser obtida empilhando as caixas. Há uma restrição de que a base 2d da caixa de baixo tem que ser sempre estritamente maior que a da caixa de cima.
-
-O programa recebe um array de caixas, onde cada uma delas pode ser rotacionada para ser empilhada em cima de si mesmo como se fosse outra caixa, desde que atenda a restrição. Retornará um número que é a máxima altura da pilha de caixas.
-
-Complexidade: `O(n²)`
-
-Utilização:
-```java
-int input[] = { ... }
-
-int output = DynamicAlgorithms.maxHeight(input);
-```
-
-#### Longest Common Subsequence
+### Longest Common Subsequence
 
 Dado duas strings "m" e "n" o usuário deseja obter o tamanho da maior subsequência comum dentre os seus elementos. Para que os elementos pertençam a maior subsequência, eles não precisam estar adjacentes na sua string de origem, precisam apenas estar um apos o outro na mesma ordem nas duas strings.
 
@@ -243,18 +180,80 @@ String second_string = " ... "
 int output = DynamicAlgorithms.lcs(first_string, second_string);
 ```
 
-#### Floyd Warshall
+### Matrix Multiplication
 
-Dado um grafo orientado com "n" nós, não negativo, esse algoritmo busca expor os caminhos mais curtos entre todos os pares de nós do grafo.
+Com um conjunto de n matrizes, esta função retornará a quantidade de multiplicações feitas em um sequência ótima de operações no dado conjunto na ordem apresentada.
 
-O programa tem como entrada as informações sobre a quantidade de nós do grafo e informações como: nó de origem, nó de destino e o tamanho do caminho entre esses dois nós respectivamente. Retornará um grafo resultante que contem as menores distâncias entre cada dois nós.
+A função receberá um array onde os n-1 primeiros valores do array serão o numero de linhas das matrizes, e o último valor será o numero de colunas da última matriz. O retorno é o número de operações feitas numa multiplicação otimizada.
 
-Complexidade: `O(n³)`
+Complexidade: `O(mn)`
 
 Utilização:
 ```java
-Graph fw = new Graph( ... );
-fw.addEdge( ... );
+int[] array = { ... };
+		
+int output = DynamicAlgorithms.matrixMultiplication(array);
+```
 
-double[][] result = DynamicAlgorithms.floydWarshall();
+### Minimum Edit Distance
+
+O usuário terá duas strings e necessita saber quantas operações de remoção, substituição, e/ou inserção serão feitas para transformar a primeira string na segunda.
+
+O programa recebe duas strings e retorna o número mínimo de operações (a distância) para transformar a primeira string na segunda. 
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+String a = " ... ";
+String b = " ... ";
+
+int output = DynamicAlgorithms.minEdit(a, b));
+```
+
+### Prim's Minimum Spanning Tree
+
+Tendo um grafo ponderado, pode-se convertê-lo para um array bidimensional. Este array será tratado como uma tabela de adjacência contendo os pesos das arestas, e com isso será possível montar a árvore desejada.
+
+Com o input pronto, a função analisará o grafo partindo da raiz (índice 0) e retornará uma string contendo as arestas da árvore no formato "i-j;i-x;x-y;" onde cada letra será o valor da vértice que representa um nó.
+
+Complexidade: `O(n²)`
+
+Utilização:
+```java
+int vert = x;
+int[][] grafo = new int[][]{{...}};
+
+int[] arvore = DynamicAlgorithms.PrimMinTree(grafo, vert);
+```
+
+### Subset Sum
+
+O usuário terá um número x e um conjunto de inteiros I e deseja saber se o x pode ser formado por uma soma de um subconjunto de valores de V.
+
+O programa recebe um número e um array como entrada, o número será a soma e o array o conjunto no qual os valores que possivelmente podem somar a x estão contidos. Retornará verdadeiro se for encontrado um subconjunto cuja a soma seja x, falso caso contrário. 
+
+Complexidade: `O(mn)`
+
+Utilização:
+```java
+int sum = ... ;
+int []set = { ... };
+
+boolean output = DynamicAlgorithms.SubsetSum(sum, set);
+```
+
+### Word Break
+A partir de um dicionário de palavras e uma string retorna `true` ou `false` caso a string possa ser dividida em uma sequencia de strings presente no dicionário.
+
+Utilização:
+```java
+List<String> dictionary = new ArrayList<String>() {{
+            add("i");
+            add("like");
+            add("ice");
+            add("cream");
+        }};
+
+boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream")
 ```
