@@ -431,4 +431,60 @@ public class DynamicAlgorithms {
         }
     }
 
+    /**
+     *Solves the problem of calculating the shortest path between all vertex pairs in a directed graph
+     * @return the graph with the shortest paths
+     */
+
+    public double[][] floydWarshall() {
+        double[][] distances;
+        int n = this.graph.length;
+        distances = Arrays.copyOf(this.graph, n);
+
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    distances[i][j] = Math.min(distances[i][j], distances[i][k] + distances[k][j]);
+                }
+            }
+
+            if (distances[k][k] < 0.0) {
+                this.negativeCycle = true;
+            }
+        }
+        return distances;
+    }
+
+    /**
+     * Given two strings, they are converted into 2 characteres arrays.
+     * Results in the greatest value of longest common subsequence between the strings
+     * @param 2 strings
+     * @return size of the longest common subsequence
+     */
+
+    public static int lcs(char first_string[],char second_string[]){
+
+        int table[][] = new int[first_string.length + 1][second_string.length + 1];
+        int max = 0;
+
+        for(int i=1; i < table.length; i++){
+            for(int j=1; j < table[i].length; j++){
+
+                if(first_string[i-1] == second_string[j-1]) {
+                    table[i][j] = table[i - 1][j - 1] + 1;
+                }
+                else
+                {
+                    table[i][j] = Math.max(table[i][j-1],table[i-1][j]);
+                }
+
+                if(table[i][j] > max){
+                    max = table[i][j];
+                }
+            }
+        }
+        return max;
+    }
+}
+
 }
