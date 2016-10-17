@@ -1,6 +1,7 @@
 package lib;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -368,6 +369,66 @@ public class DynamicAlgorithms {
                 cores[v] = 0;
             }
         }    
+    }
+
+    /**
+     * Given a set of n boxes 3d, the user wants to know the maximum height that it can obtain
+     * by stacking the n boxes with the restriction that the housing base 2d of the top box must
+     * always be less than the base of the box below.
+     * @param array input with n boxes
+     * @param array containing all rotations
+     * @return the maximum height of the stack of boxes
+     */
+
+    public static int maxHeight(Box[] input) {
+
+        Box[] allRotation = new Box[input.length * 3];
+        rotation(input, allRotation);
+
+        Arrays.sort(allRotation);
+
+        int H[] = new int[allRotation.length];
+        int result[] = new int[allRotation.length];
+
+        for (int i = 0; i < H.length; i++) {
+
+            H[i] = allRotation[i].getHeight();
+            result[i] = i;
+        }
+
+        for (int i = 1; i < H.length; i++) {
+            for (int j = 0; j < i; j++) {
+
+                if (allRotation[i].getLength() < allRotation[j].getLength()
+                        && allRotation[i].getWidth() < allRotation[j].getWidth()) {
+                    if (H[j] + allRotation[i].getHeight() > H[i]) {
+
+                        H[i] = H[j] + allRotation[i].getHeight();
+                        result[i] = j;
+                    }
+                }
+            }
+        }
+
+        int max = 0;
+
+        for (int i = 0; i < H.length; i++) {
+            if (H[i] > max) {
+                max = H[i];
+            }
+        }
+
+        return max;
+    }
+
+    private static void rotation(Box[] input, Box[] allRotation){
+
+        int index = 0;
+        for (int i = 0; i < input.length; i++) {
+            allRotation[index++] = Box.createBox(input[i].getHeight(), input[i].getLength(), input[i].getWidth());
+            allRotation[index++] = Box.createBox(input[i].getLength(), input[i].getHeight(), input[i].getWidth());
+            allRotation[index++] = Box.createBox(input[i].getWidth(), input[i].getLength(), input[i].getHeight());
+        }
     }
 
 }
