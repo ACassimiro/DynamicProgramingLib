@@ -436,7 +436,7 @@ public class DynamicAlgorithms {
      * @return the graph with the shortest paths
      */
 
-    public double[][] floydWarshall(Graph graph) {
+    public static double[][] floydWarshall(Graph graph) {
         double[][] distances = new double[graph.getGraph().length][graph.getGraph()[0].length];
         int n = graph.getGraph().length;
 
