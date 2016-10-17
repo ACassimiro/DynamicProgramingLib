@@ -10,7 +10,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Prim's Minimum Spanning Tree](../master/README.md#prims-minimum-spanning-tree)
   * [Subset Sum](../master/README.md#subset-sum)
 
-* Diego Filipe Sousa Lima - `11408104`
+* Diego Filipe Souza Lima - `11408104`
   * [Box Stacking Problem](../master/README.md#box-stacking)
   * Dijkstra’s shortest path algorithm
   * [Floyd Warshall Algorithm](../master/README.md#floyd-warshall)
