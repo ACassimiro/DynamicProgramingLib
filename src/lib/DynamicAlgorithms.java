@@ -436,10 +436,16 @@ public class DynamicAlgorithms {
      * @return the graph with the shortest paths
      */
 
-    public double[][] floydWarshall() {
-        double[][] distances;
-        int n = this.graph.length;
-        distances = Arrays.copyOf(this.graph, n);
+    public double[][] floydWarshall(Graph graph) {
+        double[][] distances = new double[graph.getGraph().length][graph.getGraph()[0].length];
+        int n = graph.getGraph().length;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < graph.getGraph()[i].length; j++) {
+                distances[i][j] = graph.getGraph()[i][j];
+            }
+        }
+
 
         for (int k = 0; k < n; k++) {
             for (int i = 0; i < n; i++) {
@@ -449,7 +455,7 @@ public class DynamicAlgorithms {
             }
 
             if (distances[k][k] < 0.0) {
-                this.negativeCycle = true;
+                graph.setNegativeCycle(true);
             }
         }
         return distances;
@@ -458,7 +464,8 @@ public class DynamicAlgorithms {
     /**
      * Given two strings, they are converted into 2 characteres arrays.
      * Results in the greatest value of longest common subsequence between the strings
-     * @param 2 strings
+     * @param first_string strings
+     * @param second_string strings
      * @return size of the longest common subsequence
      */
 
@@ -472,9 +479,7 @@ public class DynamicAlgorithms {
 
                 if(first_string[i-1] == second_string[j-1]) {
                     table[i][j] = table[i - 1][j - 1] + 1;
-                }
-                else
-                {
+                } else {
                     table[i][j] = Math.max(table[i][j-1],table[i-1][j]);
                 }
 
@@ -487,4 +492,4 @@ public class DynamicAlgorithms {
     }
 }
 
-}
+
