@@ -433,7 +433,8 @@ public class DynamicAlgorithms {
 
     /**
      *Solves the problem of calculating the shortest path between all vertex pairs in a directed graph
-     * @return the graph with the shortest paths
+     *@param an object of class Graph 
+     *@return the graph with the shortest paths
      */
 
     public static double[][] floydWarshall(Graph graph) {
@@ -464,8 +465,8 @@ public class DynamicAlgorithms {
     /**
      * Given two strings, they are converted into 2 characteres arrays.
      * Results in the greatest value of longest common subsequence between the strings
-     * @param first_string strings
-     * @param second_string strings
+     * @param array to char first_string
+     * @param array to char second_string
      * @return size of the longest common subsequence
      */
 
