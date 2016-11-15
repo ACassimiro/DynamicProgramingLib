@@ -24,7 +24,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Knapsack](../master/README.md#knap-sack)
   * [Word Break](../master/README.md#word-break)
 
-### [Meta-herísticas for SYmmetric TSP](../master/README.md#meta-heurísticas)
+### [Meta-herísticas for Symmetric TSP](../master/README.md#meta-heurísticas)
 
 * Aellison Cassimiro Teixeira dos Santos - `11311469`
 
