@@ -23,7 +23,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Fractional Knapsack](../master/README.md#fractional-knap-sack)
   * [Knapsack](../master/README.md#knap-sack)
   * [Word Break](../master/README.md#word-break)
-  * Memetic Algorithm for Symmetric TSP
+  * [Memetic Algorithm for Symmetric TSP](../master/README.md#memetic)
 
 
 ## Instalação
@@ -260,6 +260,11 @@ boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream
 ```
 
 ## Meta-heurísticas
+
+Para a implementação das Meta-heurísticas foram utilizadas as instâncias disponíveis na [TSPLib](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) para o problema Symmetric traveling salesman problem.
+
+
+O parsing das entradas da TSPLib foi feito utilizando o [TSPLIB4J](https://github.com/dhadka/TSPLIB4J).
 
 ### Memetic
 
