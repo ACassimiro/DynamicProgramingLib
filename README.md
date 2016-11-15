@@ -33,13 +33,6 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 * Marcelo Aguiar Rodrigues - `11311862`
   * [Memetic Algorithm](../master/README.md#memetic)
 
-## Instalação
-1. Faça o download dos arquivos
-2. Adicione ao seu projeto
-
-## Utilização
-No seu projeto: `import lib/DynamicAlgorithms;`
-
 ## Algorítimos Dinâmicos
 
 ### Activity Selection
