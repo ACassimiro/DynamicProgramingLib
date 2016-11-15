@@ -1,7 +1,7 @@
 # DynamicProgrammingLib
 Biblioteca com vários algorítimos feitos utilizando programação dinâmica criada como parte da nota da segunda unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
 
-### Problemas Resolvidos:
+### [Algoritimos Dinâmicos](../master/README.md#algorítimos-dinâmicos):
 
 * Aellison Cassimiro Teixeira dos Santos - `11311469`
   * [Graph Coloring](../master/README.md#graph-coloring)
@@ -23,8 +23,15 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Fractional Knapsack](../master/README.md#fractional-knap-sack)
   * [Knapsack](../master/README.md#knap-sack)
   * [Word Break](../master/README.md#word-break)
-  * [Memetic Algorithm for Symmetric TSP](../master/README.md#memetic)
 
+### [Meta-herísticas for SYmmetric TSP](../master/README.md#meta-heurísticas)
+
+* Aellison Cassimiro Teixeira dos Santos - `11311469`
+
+* Diego Filipe Souza Lima - `11408104`
+
+* Marcelo Aguiar Rodrigues - `11311862`
+  * [Memetic Algorithm](../master/README.md#memetic)
 
 ## Instalação
 1. Faça o download dos arquivos
