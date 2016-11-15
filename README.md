@@ -23,6 +23,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
   * [Fractional Knapsack](../master/README.md#fractional-knap-sack)
   * [Knapsack](../master/README.md#knap-sack)
   * [Word Break](../master/README.md#word-break)
+  * Memetic Algorithm for Symmetric TSP
 
 
 ## Instalação
@@ -32,7 +33,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 ## Utilização
 No seu projeto: `import lib/DynamicAlgorithms;`
 
-## Algorítimos
+## Algorítimos Dinâmicos
 
 ### Activity Selection
 Para utilizar esse algorítimo: `import lib/Activity;`
@@ -256,4 +257,39 @@ List<String> dictionary = new ArrayList<String>() {{
         }};
 
 boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream")
+```
+
+## Meta-heurísticas
+
+### Memetic
+
+Utilização:
+```java
+String test = "att48";      // instance name
+int poolSize = 50;          // number of Candidates of the population
+int timeLimit = 1;          // seconds
+
+Memetic solution = new Memetic(test, pool);
+Candidate result = solution.executeAlgorithm(timeLimit);
+
+System.out.println(result.getFitness());
+```
+
+Para mais de uma execução com várias instâncias:
+```java
+ArrayList<TestInstance> testInstances = new ArrayList<TestInstance>() {{
+    add(new TestInstance("att48", 1, 5));
+    add(new TestInstance("djola", 1, 5));
+    add(new TestInstance("brg180", 5, 5));
+}};
+
+for (TestInstance testInstance : testInstances) {
+    Candidate[] results = new Candidate[testInstance.getTestRuns()];
+    for (int i = 0; i < testInstance.getTestRuns(); i++) {
+        Memetic solution = new Memetic(testInstance.getName(), sizeOfThePool);
+        results[i] = solution.executeAlgorithm(testInstance.getTimeLimit());
+    }
+    
+    // with results do ...
+}
 ```
