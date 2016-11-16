@@ -261,12 +261,14 @@ boolean doILikeIceCream = DynamicAlgorithms.wordBreak(dictionary, "ilikeicecream
 
 ## Meta-heurísticas
 
-Para a implementação das Meta-heurísticas foram utilizadas as instâncias disponíveis na [TSPLib](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) para o problema Symmetric traveling salesman problem.
+Para a implementação das Meta-heurísticas foram utilizadas as instâncias disponíveis na [TSPLib](http://comopt.ifi.uni-heidelberg.de/software/TSPLIB95/) para o problema Symmetric traveling salesman.
 
 
 O parsing das entradas da TSPLib foi feito utilizando o [TSPLIB4J](https://github.com/dhadka/TSPLIB4J).
 
 ### Memetic
+
+// TODO
 
 Utilização:
 ```java
@@ -274,7 +276,7 @@ String test = "att48";      // instance name
 int poolSize = 50;          // number of Candidates of the population
 int timeLimit = 1;          // seconds
 
-Memetic solution = new Memetic(test, pool);
+Memetic solution = new Memetic(test, poolSize);
 Candidate result = solution.executeAlgorithm(timeLimit);
 
 System.out.println(result.getFitness());
