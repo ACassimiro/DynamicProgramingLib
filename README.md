@@ -279,14 +279,17 @@ int timeLimit = 1;          // seconds
 Memetic solution = new Memetic(test, poolSize);
 Candidate result = solution.executeAlgorithm(timeLimit);
 
-System.out.println(result.getFitness());
+// To get the best distance found
+double distance = result.getFitness();
+
+// To get the best Tour found
+Tour tour = result.getTour();
 ```
 
 Para mais de uma execução com várias instâncias:
 ```java
 ArrayList<TestInstance> testInstances = new ArrayList<TestInstance>() {{
     add(new TestInstance("att48", 1, 5));
-    add(new TestInstance("djola", 1, 5));
     add(new TestInstance("brg180", 5, 5));
 }};
 
