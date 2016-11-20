@@ -15,6 +15,11 @@ public class TestInstance {
         this.testRuns = testRuns;
     }
 
+    public TestInstance(String name, int testRuns){
+        this.name = name;
+        this.testRuns = testRuns;
+    }
+
     public String getName() {
         return name;
     }
