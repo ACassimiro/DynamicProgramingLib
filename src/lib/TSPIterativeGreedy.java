@@ -28,8 +28,10 @@ public class TSPIterativeGreedy {
 
 	private TSPInstance instance;
 	private Tour tour;
+	private Tour finalTour;
 	private double averageFitness;
 	private double bestFitness;
+	private double finalFitness;
 	private Tour bestTour;
 	private ArrayList<Tour> tourList;
 	private long executionTime;
@@ -51,8 +53,16 @@ public class TSPIterativeGreedy {
 		return this.averageFitness;
 	}
 
+	public double getFinalFitness(){
+		return this.finalFitness;
+	}
+
 	public Tour getBestTour(){
 		return this.bestTour;
+	}
+
+	public Tour getFinalTour(){
+		return this.finalTour;
 	}
 
 	public ArrayList<Tour> getTourList(){
@@ -61,10 +71,6 @@ public class TSPIterativeGreedy {
 
 	public Tour getTour(){
 	    return this.tour;
-	}
-
-	public long getExecutionTime(){
-		return this.executionTime;
 	}
 
 	public double getCurrentFitness(){
@@ -230,6 +236,8 @@ public class TSPIterativeGreedy {
 			averageFitness += fitness;
 		}
 
+		finalFitness = fitness;
+		finalTour = tour;
 		averageFitness = averageFitness/poolSize;
 
 	} 
