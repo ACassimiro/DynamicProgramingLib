@@ -27,7 +27,7 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 ### [Meta-herísticas for Symmetric TSP](../master/README.md#meta-heurísticas)
 
 * Aellison Cassimiro Teixeira dos Santos - `11311469`
-  * [Memetic Algorithm](../master/README.md#iterated-greedy)
+  * [Iterated Greedy](../master/README.md#iterated-greedy)
 
 * Diego Filipe Souza Lima - `11408104`
 
