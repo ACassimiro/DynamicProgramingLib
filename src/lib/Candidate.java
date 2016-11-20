@@ -59,8 +59,6 @@ public class Candidate {
 
     @Override
     public String toString() {
-        return "Candidate{" +
-                "fitness=" + fitness +
-                '}';
+        return "" + fitness;
     }
 }

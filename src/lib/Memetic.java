@@ -47,6 +47,8 @@ public class Memetic extends TSPAlgorithm {
         Candidate bestSolutionFound = getCandidateWithBestFitness();
 
         while (System.currentTimeMillis() - time <= timeLimitInSeconds) {
+            if (bestSolutionFound.getFitness() == this.optimalDistance)
+                break;
 
             recombinePopulation();
             mutatePopulation();

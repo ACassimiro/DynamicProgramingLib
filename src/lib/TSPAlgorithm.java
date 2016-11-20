@@ -35,11 +35,17 @@ abstract class TSPAlgorithm {
     static TSPInstance instance;
 	private DistanceTable distanceTable;
 	Random rnd = new Random();
+    double optimalDistance;
 
     TSPAlgorithm(String s) {
         try {
             instance = new TSPInstance(new File("./data/tsp/" + s + ".tsp"));
-        } catch (IOException e) {
+
+            // Set optinal distance
+            instance.addTour(new File("./data/tsp/" + s + ".opt.tour"));
+            optimalDistance = instance.getTours().get(0).distance(instance);
+
+    } catch (IOException e) {
             System.out.println("Instance '" + s + "' not found." +
                     "\nInstance file should be at" +
                     "\n    ../data/tsp/<instance_name>.tsp");
@@ -65,4 +71,7 @@ abstract class TSPAlgorithm {
         return nearestCity;
     }
 
+    public double getOptimalDistance() {
+        return this.optimalDistance;
+    }
 }

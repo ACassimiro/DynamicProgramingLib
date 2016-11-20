@@ -18,10 +18,13 @@
  * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  * IN THE SOFTWARE.
  */
+package lib;
 
 import java.io.File;
 import java.util.*;
 
+import org.moeaframework.problem.tsplib.DistanceTable;
+import org.moeaframework.problem.tsplib.TSPInstance;
 import org.moeaframework.problem.tsplib.Tour;
 
 public class TSPIterativeGreedy {
@@ -42,7 +45,6 @@ public class TSPIterativeGreedy {
 		bestFitness = Double.MAX_VALUE;
 		tourList = new ArrayList<Tour>();
 	}
-
 
 	public double getBestFitness(){
 		return this.bestFitness;
@@ -87,7 +89,7 @@ public class TSPIterativeGreedy {
 
 	public int[] createPath(int begin, int end, int destructionFactor, int[] visited){
 		int [] path = new int[destructionFactor];
-		ArrayList<Integer> pathList = new ArrayList();
+		ArrayList<Integer> pathList = new ArrayList<>();
 		int currentNode, nextNode;
 		double lower, distance;
 
