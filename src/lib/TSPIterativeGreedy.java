@@ -262,9 +262,9 @@ public class TSPIterativeGreedy {
 		double optDist = 0;
 
 		try {
-            temp = new TSPInstance(new File("tsp-instances/" + path));
+            temp = new TSPInstance(new File("../../data/tsp/" + path));
 
-            temp.addTour(new File("tsp-instances/" + path.split("\\.")[0] + ".opt.tour"));
+            temp.addTour(new File("../../data/tsp/" + path.split("\\.")[0] + ".opt.tour"));
             optDist = temp.getTours().get(0).distance(temp);
 
   		} catch (IOException e) {
@@ -295,7 +295,7 @@ public class TSPIterativeGreedy {
 		instance = new TSPInstance();
 
 
-		File instanceFile = new File("tsp-instances/" + path);
+		File instanceFile = new File("../../data/tsp/" + path);
 		double optDist = getOpt(path);
 
 
