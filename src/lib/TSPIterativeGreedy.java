@@ -45,7 +45,9 @@ public class TSPIterativeGreedy {
 	  * Constructs a new TSPIterativeGreedy instance
 	  */
 	public TSPIterativeGreedy(){
+		bestTour = new Tour();
 		bestFitness = Double.MAX_VALUE;
+		numIterat = 0;
 		tourList = new ArrayList<Tour>();
 	}
 
@@ -287,12 +289,17 @@ public class TSPIterativeGreedy {
 	 */
 	public void IG(String path, int poolSize, int timeLimit){
 
-		path += ".tsp";
-
 		int counter = 0;		
 		double fitness = 0;
 		long beginTime, endTime;
 		instance = new TSPInstance();
+
+		path += ".tsp";
+
+		bestTour = new Tour();
+		bestFitness = Double.MAX_VALUE;
+		numIterat = 0;
+		tourList = new ArrayList<Tour>();
 
 
 		File instanceFile = new File("../../data/tsp/" + path);
