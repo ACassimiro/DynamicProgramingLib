@@ -333,17 +333,20 @@ System.out.println("Execution time: " + executionTime + " milliseconds");
 Para mais de uma execução com várias instâncias:
 ```java
 ArrayList<TestInstance> testInstances = new ArrayList<TestInstance>() {{
-    add(new TestInstance("att48", 5));
-    add(new TestInstance("brg180", 5));
+    add(new TestInstance("att48", 1, 5));
+    add(new TestInstance("brg180", 5, 5));;
 }};
+
+ArrayList<TSPIterativeGreedy> resultList = new ArrayList<TSPIterativeGreedy>()
 
 for (TestInstance testInstance : testInstances) {
     for (int i = 0; i < testInstance.getTestRuns(); i++) {
         TSPIterativeGreedy solution = new TSPIterativeGreedy();
-        solution.IG(testInstance.getName(), sizeOfThePool);
+        solution.IG(testInstance.getName(), sizeOfThePool, testInstance.getTimeLimit());
     
-    	//Store the results, use it in operations, you decide.
-	
+    	resultList.add(solution);
     }
+    
+    //Analyse the results.
 }
 ```
