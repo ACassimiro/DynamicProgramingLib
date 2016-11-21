@@ -307,7 +307,7 @@ for (TestInstance testInstance : testInstances) {
 
 ### Iterated Greedy
 
-Ideia básica do algoritmo é obter um Tour aleatório e iterar o algoritmo de destruição e reconstrução sobre ele um determinado número de vezes. O ponto de destruição/reconstrução é aleatório. 30% do Tour será destruído/reconstruído. O array continuará a ter pontos aleatórios destruídos e reconstruídos até o fim do tempo limite.
+Ideia básica do algoritmo é obter um Tour aleatório e iterar o algoritmo de destruição e reconstrução sobre ele um determinado número de vezes. Se após mil iterações o melhor caso não for encontrado, cria-se uma nova tour. O ponto de destruição/reconstrução é aleatório. 30% do Tour será destruído/reconstruído. O array continuará a ter pontos aleatórios destruídos e reconstruídos até o fim do tempo limite.
 
 Utilização:
 ```java
