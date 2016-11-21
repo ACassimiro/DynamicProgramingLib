@@ -347,6 +347,7 @@ for (TestInstance testInstance : testInstances) {
     	resultList.add(solution);
     }
     
-    //Analyse the results.
+    //Analyse the results:
+    //instance.getBestFitness(), instance.getBestTour(), etc.
 }
 ```
