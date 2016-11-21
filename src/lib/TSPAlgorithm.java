@@ -41,7 +41,7 @@ abstract class TSPAlgorithm {
         try {
             instance = new TSPInstance(new File("./data/tsp/" + s + ".tsp"));
 
-            // Set optinal distance
+            // Set optimal distance
             instance.addTour(new File("./data/tsp/" + s + ".opt.tour"));
             optimalDistance = instance.getTours().get(0).distance(instance);
 

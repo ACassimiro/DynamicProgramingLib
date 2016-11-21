@@ -28,16 +28,18 @@ import org.moeaframework.problem.tsplib.Tour;
 
 public class Memetic extends TSPAlgorithm {
 
-    private int poolSize;
+    private static final int poolSize = 50;
     private Candidate[] candidates;
+    private double distance;
+    private ArrayList<Double> distancesFound;
 
-    public Memetic(String s, int poolSize) {
+    public Memetic(String s) {
         super(s);
-        this.poolSize = poolSize;
         this.candidates = new Candidate[poolSize];
+        this.distancesFound = new ArrayList<>();
     }
 
-    public Candidate executeAlgorithm(int timeLimit) {
+    public void run(int timeLimit) {
 
         int timeLimitInSeconds = 1000 * timeLimit;
         long time = System.currentTimeMillis();
@@ -58,9 +60,11 @@ public class Memetic extends TSPAlgorithm {
 
             if (bestFitnessOfCurrentIteration < bestSolutionFound.getFitness())
                 bestSolutionFound = getCandidateWithBestFitness();
+
+            this.distancesFound.add(bestSolutionFound.getFitness());
         }
 
-        return bestSolutionFound;
+        this.distance = bestSolutionFound.getFitness();
     }
 
     private void initializePopulation() {
@@ -197,7 +201,6 @@ public class Memetic extends TSPAlgorithm {
             endpoints.remove(fragment.get(0));
             int end = fragment.get(fragment.size() - 1);
             endpoints.remove(end);
-            // Reconnect to the nearest city (by determining the new fragmentIndex)
 
             if (endpoints.isEmpty())
                 break;
@@ -211,4 +214,11 @@ public class Memetic extends TSPAlgorithm {
         return Tour.createTour(arr);
     }
 
+    public double getDistance() {
+        return this.distance;
+    }
+
+    public ArrayList<Double> getDistancesFound() {
+        return this.distancesFound;
+    }
 }
