@@ -307,15 +307,16 @@ for (TestInstance testInstance : testInstances) {
 
 ### Iterated Greedy
 
-Ideia básica do algoritmo é obter um Tour aleatório e iterar o algoritmo de destruição e reconstrução sobre ele um determinado número de vezes. O ponto de destruição/reconstrução é aleatório. 30% do Tour será destruído/reconstruído. //TODO: DESENVOLVER
+Ideia básica do algoritmo é obter um Tour aleatório e iterar o algoritmo de destruição e reconstrução sobre ele um determinado número de vezes. O ponto de destruição/reconstrução é aleatório. 30% do Tour será destruído/reconstruído. O array continuará a ter pontos aleatórios destruídos e reconstruídos até o fim do tempo limite.
 
 Utilização:
 ```java
 String test = "att48";      // Instance name
 int poolSize = 50;          // Number of Candidates of the population/Iterations of the algorithm
+int timeLimit = 1;          // seconds
 
 TSPIterativeGreedy instance = new TSPIterativeGreedy();
-instance.IG(test, poolSize);
+instance.IG(test, poolSize, timeLimit);
 
 // To get the best distance found
 double bestFitness = instance.getBestFitness();
@@ -324,9 +325,9 @@ System.out.println(bestFitness);
 // To get the best Tour found
 Tour tour = result.getBestTour();
 
-// To get the execution time:
-long executionTime = instance.getExecutionTime();
-System.out.println("Execution time: " + executionTime + " milliseconds");
+// To get the number of iterations:
+long iteratNum = instance.getNumIterat();
+System.out.println("Number of iterations: " + iteratNum);
 
 ```
 
