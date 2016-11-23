@@ -211,12 +211,14 @@ public class TSPIterativeGreedy {
 
 		Random r = new Random();
 
-		destructionFactor = (int) (arrTour.length * 0.3);
+		destructionFactor = (int) (arrTour.length * 0.4);
 
-		destructionPoint = (int) (arrTour.length * (r.nextInt(7)) * 0.1);
+		destructionPoint = r.nextInt(arrTour.length - destructionFactor);
+
 		while(lastDPoint == destructionPoint){
-			destructionPoint = (int) (arrTour.length * (r.nextInt(7)) * 0.1);
+			destructionPoint = r.nextInt(arrTour.length - destructionFactor);
 		}
+		// System.out.println(destructionPoint);
 
 		lastDPoint = destructionPoint;
 		
@@ -331,16 +333,19 @@ public class TSPIterativeGreedy {
 
 			fitness = getCurrentFitness();
 
+			numIterat++;
+			tourList.add(this.tour);
+			distanceList.add(fitness);
 
 			if(fitness < bestFitness){
 				bestFitness = fitness;
 				bestTour = this.tour;
-			} else if (fitness == optDist) {
+			} 
+
+			if (fitness == optDist) {
 				break;
 			}
-			numIterat++;
-			tourList.add(this.tour);
-			distanceList.add(fitness);
 		}
+
 	} 
 }
