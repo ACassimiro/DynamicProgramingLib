@@ -28,7 +28,7 @@ import org.moeaframework.problem.tsplib.Tour;
 
 public class Memetic extends TSPAlgorithm {
 
-    private static final int poolSize = 50;
+    private static final int poolSize = 20;
     private Candidate[] candidates;
     private double distance;
     private ArrayList<Double> distancesFound;
@@ -39,6 +39,13 @@ public class Memetic extends TSPAlgorithm {
         this.distancesFound = new ArrayList<>();
     }
 
+    public Memetic() {}
+
+    /**
+     * Runs the memetic algorithm for the time limit specified. Execution returns before if the
+     * solution found is equal to optimal solution for instance.
+     * @param timeLimit time to run before stop.
+     */
     public void run(int timeLimit) {
 
         int timeLimitInSeconds = 1000 * timeLimit;
@@ -67,6 +74,9 @@ public class Memetic extends TSPAlgorithm {
         this.distance = bestSolutionFound.getFitness();
     }
 
+    /**
+     * Initializes a population of random Tours.
+     */
     private void initializePopulation() {
         for (int i = 0; i < poolSize; i++) {
             Tour tour = Tour.createRandomTour(instance.getDimension());
@@ -75,6 +85,10 @@ public class Memetic extends TSPAlgorithm {
         }
     }
 
+    /**
+     * Chooses some tours to be replaced if they are too much below the population average
+     * or to be used for recombination if they are above popupation average.
+     */
     private void recombinePopulation() {
         LinkedList<Integer> toReplace = new LinkedList<>();
         LinkedList<Integer> toRecombine = new LinkedList<>();
@@ -86,6 +100,7 @@ public class Memetic extends TSPAlgorithm {
                 .average()
                 .getAsDouble();
 
+        // Decide which members of the populations will survive and which will be used to recombine
         for (int i = 0; i < poolSize; i++) {
             double d = candidates[i].getFitness();
 
@@ -129,9 +144,11 @@ public class Memetic extends TSPAlgorithm {
         }
     }
 
+    /**
+     * Applies a mutation to every member of the population.
+     */
     private void mutatePopulation() {
         for (int i = 0; i < poolSize; i++) {
-            //perform a randomly selected 4-change with probability 0.1, assumes size of TSP > 8
             if (Math.random() < 0.2) {
                 candidates[i].getTour().fourChange();
                 candidates[i].setFitness(instance);
@@ -139,6 +156,9 @@ public class Memetic extends TSPAlgorithm {
         }
     }
 
+    /**
+     * Uses the 2-Opt heuristc to improve the current population.
+     */
     private void improvePopulation() {
         TSP2OptHeuristic heuristic = new TSP2OptHeuristic(instance);
         for (int i = 0; i < poolSize; i++) {
@@ -147,12 +167,23 @@ public class Memetic extends TSPAlgorithm {
         }
     }
 
+    /**
+     * This method returns the candidate of the current population that has the best fitness.
+     * @return Candidate with best fitness
+     */
     private Candidate getCandidateWithBestFitness() {
         return Arrays.stream(candidates)
                 .min((o1, o2) -> Double.compare(o1.getFitness(), o2.getFitness()))
                 .get();
     }
 
+    /**
+     * The method uses two selected tours as parents and recombines fragments of them to create a child tour.
+     * That child tour is then return to be added to the population.
+     * @param t1 first parent
+     * @param t2 second parent
+     * @return child
+     */
     private Tour dpx(Tour t1, Tour t2) {
         int[] parent1 = t1.toArray();
         int[] parent2 = t2.toArray();
@@ -214,10 +245,18 @@ public class Memetic extends TSPAlgorithm {
         return Tour.createTour(arr);
     }
 
+    /**
+     * Returns the best distance found during the execution of the algorithm.
+     * @return double best distance found
+     */
     public double getDistance() {
         return this.distance;
     }
 
+    /**
+     * Returns the list of all the best distances found at each iteration of the algorithm.
+     * @return ArrayList of solutions found
+     */
     public ArrayList<Double> getDistancesFound() {
         return this.distancesFound;
     }

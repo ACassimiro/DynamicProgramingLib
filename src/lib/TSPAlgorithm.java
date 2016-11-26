@@ -37,6 +37,8 @@ abstract class TSPAlgorithm {
 	Random rnd = new Random();
     double optimalDistance;
 
+    TSPAlgorithm() {}
+
     TSPAlgorithm(String s) {
         try {
             instance = new TSPInstance(new File("./data/tsp/" + s + ".tsp"));
