@@ -41,10 +41,10 @@ abstract class TSPAlgorithm {
 
     TSPAlgorithm(String s) {
         try {
-            instance = new TSPInstance(new File("./data/tsp/" + s + ".tsp"));
+            instance = new TSPInstance(new File("../data/tsp/" + s + ".tsp"));
 
             // Set optimal distance
-            instance.addTour(new File("./data/tsp/" + s + ".opt.tour"));
+            instance.addTour(new File("../data/tsp/" + s + ".opt.tour"));
             optimalDistance = instance.getTours().get(0).distance(instance);
 
     } catch (IOException e) {
