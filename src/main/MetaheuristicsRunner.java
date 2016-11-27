@@ -4,13 +4,11 @@ import lib.Memetic;
 import lib.TSPIterativeGreedy;
 import lib.TestInstance;
 
-import java.util.ArrayList;
-
 /**
  * Provides a rudimentary way to test the solutions for the TSP problem.
  * Created by Marcelo on 20/11/2016.
  */
-public class Tester {
+public class MetaheuristicsRunner {
 
     public static void main(String[] args) {
 
@@ -39,11 +37,7 @@ public class Tester {
             solution = new Memetic(testInstance.getName());
             solution.run(testInstance.getTimeLimit());
 
-            ArrayList<Double> distances = solution.getDistancesFound();
-
-            distances.forEach(System.out::println);
-
-            System.out.println("Distance found: " + solution.getDistance());
+            System.out.println("Distance found for run " + (i+1) + ": " + solution.getDistance());
 
         }
         System.out.println("Optimal distance: " + solution.getOptimalDistance());
@@ -60,10 +54,7 @@ public class Tester {
 
             solution.IG(testInstance.getName(), testInstance.getTimeLimit());
 
-            solution.getDistanceList().forEach(System.out::println);
-
-            System.out.println("Distance found: " + solution.getBestFitness());
-
+            System.out.println("Distance found for run " + (i+1) + ": " + solution.getBestFitness());
         }
     }
 

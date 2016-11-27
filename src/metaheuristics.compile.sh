@@ -7,4 +7,4 @@ javac org/moeaframework/problem/tsplib/*.java
 javac -cp .:org.moeaframework.problem.tsplib.* lib/*.java
 
 # Compiles the tester class
-javac -cp .:org.moeaframework.problem.tsplib.* main/*.java
+javac -cp .:org.moeaframework.problem.tsplib.* main/MetaheuristicsRunner.java
