@@ -34,7 +34,7 @@ As implementações das metaheurísticas foram feitas como a nota da terceira un
 * Diego Filipe Souza Lima - `11408104`
 
 * Marcelo Aguiar Rodrigues - `11311862`
-  * [Memetic Algorithm](../master/README.md#memetic)
+  * [Memetic Algorithm](../master/README.md#memetic-algorithms)
 
 ## Testes
 
