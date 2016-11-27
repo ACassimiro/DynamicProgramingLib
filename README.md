@@ -44,14 +44,9 @@ Para compilar e rodar testes rudimentares nas soluções foram adicionados scrip
 * metaheuristics.compile.sh - compila as classes das metaheurísticas
 * metaheuristics.run.sh - roda as classes das metaheurísticas
   * Exemplo:
-  
-      `./metaheuristics..run.sh -m att48 2 5`
-  
-  Roda a metaheurística memética vezes usando a instância `att48` por 2 segundos e faz isso por 5 vezes.
-  
-      `./metaheuristics..run.sh -i ch150 5 3`
-      
-  Roda a metaheurística gulosa iterativa vezes usando a instância `ch150` por 5 segundos e faz isso por 3 vezes.
+     1. `./metaheuristics.run.sh -m att48 2 5` - roda a metaheurística memética vezes usando a instância `att48` por 2 segundos e faz isso por 5 vezes.
+     2. `./metaheuristics.run.sh -i ch150 5 3` - roda a metaheurística gulosa iterativa vezes usando a instância `ch150` por 5 segundos e faz isso por 3 vezes.
+
 
 ## Algorítimos Dinâmicos
 
