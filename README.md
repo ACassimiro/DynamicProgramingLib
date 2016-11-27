@@ -48,6 +48,10 @@ Para compilar e rodar testes rudimentares nas soluções foram adicionados scrip
       `./metaheuristics..run.sh -m att48 2 5`
   
   Roda a metaheurística memética vezes usando a instância `att48` por 2 segundos e faz isso por 5 vezes.
+  
+      `./metaheuristics..run.sh -i ch150 5 3`
+      
+  Roda a metaheurística gulosa iterativa vezes usando a instância `ch150` por 5 segundos e faz isso por 3 vezes.
 
 ## Algorítimos Dinâmicos
 
