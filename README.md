@@ -1,6 +1,8 @@
 # DynamicProgrammingLib
 Biblioteca com vários algorítimos feitos utilizando programação dinâmica criada como parte da nota da segunda unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
 
+As implementações das metaheurísticas foram feitas como a nota da terceira unidade da disciplina Análise e Projeto de Algorítimos, no período 2016.2 da Universidade Federal da Paraíba.
+
 ### [Algoritimos Dinâmicos](../master/README.md#algorítimos-dinâmicos):
 
 * Aellison Cassimiro Teixeira dos Santos - `11311469`
@@ -33,6 +35,19 @@ Biblioteca com vários algorítimos feitos utilizando programação dinâmica cr
 
 * Marcelo Aguiar Rodrigues - `11311862`
   * [Memetic Algorithm](../master/README.md#memetic)
+
+## Testes
+
+Para compilar e rodar testes rudimentares nas soluções foram adicionados scripts na pasta `scr/`.
+* dynamic.compile.sh - compila os algorítimos dinâmicos
+* dynamic.run.sh - roda os testes dos algorítimos dinâmicos
+* metaheuristics.compile.sh - compila as classes das metaheurísticas
+* metaheuristics.run.sh - roda as classes das metaheurísticas
+  * Exemplo:
+  
+      `./metaheuristics..run.sh -m att48 2 5`
+  
+  Roda a metaheurística memética vezes usando a instância `att48` por 2 segundos e faz isso por 5 vezes.
 
 ## Algorítimos Dinâmicos
 
