@@ -267,42 +267,20 @@ Para a implementação das Meta-heurísticas foram utilizadas as instâncias dis
 
 O parsing das entradas da TSPLib foi feito utilizando o [TSPLIB4J](https://github.com/dhadka/TSPLIB4J).
 
-### Memetic
+### Memetic Algorithms
 
-// TODO
+A Metaheurística Memética é uam combinação entre os algoritimos evolucionários e uma busca local. No começo é gerada uma população de soluções aleatórias e nela são aplicadas operações de recombinação, mutação e melhoramento. Esses procedimentos fazem com que o algoritimos chegue uma resposta satisfatória em poucas iterações e pela natureza da recombinação consiga sair de ótimos locais.
 
 Utilização:
 ```java
-String test = "att48";      // instance name
-int poolSize = 50;          // number of Candidates of the population
+String instance = "att48";      // instance name
 int timeLimit = 1;          // seconds
 
-Memetic solution = new Memetic(test, poolSize);
-Candidate result = solution.executeAlgorithm(timeLimit);
+Memetic solution = new Memetic(instance);
+solution.run(timeLimit);
 
 // To get the best distance found
-double distance = result.getFitness();
-
-// To get the best Tour found
-Tour tour = result.getTour();
-```
-
-Para mais de uma execução com várias instâncias:
-```java
-ArrayList<TestInstance> testInstances = new ArrayList<TestInstance>() {{
-    add(new TestInstance("att48", 1, 5));
-    add(new TestInstance("brg180", 5, 5));
-}};
-
-for (TestInstance testInstance : testInstances) {
-    Candidate[] results = new Candidate[testInstance.getTestRuns()];
-    for (int i = 0; i < testInstance.getTestRuns(); i++) {
-        Memetic solution = new Memetic(testInstance.getName(), sizeOfThePool);
-        results[i] = solution.executeAlgorithm(testInstance.getTimeLimit());
-    }
-    
-    // with results do ...
-}
+double distance = result.getDistance();
 ```
 
 ### Iterated Greedy
